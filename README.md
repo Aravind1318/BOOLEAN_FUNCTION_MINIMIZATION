@@ -76,7 +76,8 @@ endmodule
 **Output:**
 ![image](https://github.com/gauthamkrishna7/BOOLEAN_FUNCTION_MINIMIZATION/assets/141175025/86cc988b-b5fd-4693-a0a5-4a879656e903)
 
-
+**RTL DIAGRAM**
+<img width="743" height="889" alt="Screenshot 2025-09-11 143200" src="https://github.com/user-attachments/assets/0b6f384e-8a0a-49fe-817d-bc3d29848d9d" />
 
 **Result:**
 
