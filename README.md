@@ -44,32 +44,32 @@ RegisterNumber: 212224240015
 ```
 
 ```py
-//Program to compute the function f1=a'b'c'd'+ac'd'+b'cd'+a'bcd+bc'd
-//f2=xy'z+x'y'z+w'xy+wx'y+wxy
-// simplify the logic using Boolean minimization/k map 
-//compute f2 and write verilog code for f2 as like f1
+module bool_func_min (
+    input  wire A, B, C, D,
+    input  wire W, X, Y, Z,
+    output wire F1,
+    output wire F2
+);
 
-module EX_02(a,b,c,d,w,x,y,z,f1,f2);
-input a,b,c,d,w,x,y,z;
-output f1,f2;
-wire adash,bdash,cdash,ddash,ydash,p,q,r,s,t,u;
-not(adash,a);
-not(bdash,b);
-not(cdash,c);
-not(ddash,d);
-not(ydash,y);
-and(p,bdash,ddash);
-and(q,adash,b,d);
-and(r,a,b,cdash);
-or(f1,p,q,r);
+    wire X1, X2, X3, X4, X5;
+    wire X6, X7, X8, X9, X10;
 
-wire ybar,M,N,O;
-not(ybar,y);
-and(M,w,y);
-and(N,x,y);
-and(O,z,ybar);
-or(f2,M,N,O);
+    assign X1 = (~D) & (~C) & (~A) & (~B);
+    assign X2 = (D) & (C) & (~A) & (~B);
+    assign X3 = (D) & (~C) & (A) & (B);
+    assign X4 = (~D) & (C) & (A) & (~B);
+    assign X5 = (A) & (B) & (~C) & (~D);
+    assign F1 = X1 | X2 | X3 | X4 | X5;
+
+    assign X7 = Z | (~X) | (~Y);
+    assign X8  = W & X & Y;
+    assign X9  = (~Z) & X & (~Y);
+    assign X10 = Z & X & Y;
+    assign X6  = (~Z) & (~X) & Y;
+    assign F2 = X6 | X7 | X8 | X9 | X10;
+
 endmodule
+
 ```
 
 
